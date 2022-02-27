@@ -14,24 +14,22 @@ done
 
 flatpak install flathub com.github.Eloston.UngoogledChromium
 
-# Settings
-## Turn off Clear cookies and site data when you quit Chromium
-## Turn on Send a "Do Not Track" request with your browsing traffic
-## Default Search engine - DuckDuckGo 
-### You can add Google as a search engine via this URL in Manage search engines - "http://www.google.com/search?q=%s"
-## Turn off Ask where to save each file before downloading
+echo -e "Adding Default Config"
+# Turns off 'Clear cookies and site data when you quit Chromium'
+# Turns on 'Send a "Do Not Track" request'
+# Default Search engine - DuckDuckGo; to use Google, add this url "http://www.google.com/search?q=%s" to search engines
+# Turns off 'Ask where to save each file before downloading'
+# Downloads chromium-web-store to download extensions; in addition adds uBlock Origin and AutoScroll
+unzip ./configs/chromeprofile.zip -d ~/.var/app/com.github.Eloston.UngoogledChromium/config/chromium/
 
-# Download chromium-web-store (https://github.com/NeverDecaf/chromium-web-store)
-## Change the flag `chrome://flags/#extension-mime-request-handling` to `Always prompt` for install.
-## Get uBlock Origin
-## Get AutoScroll
-## Get LocalCDN
+echo -e "Installing Widevine CDM"
+source ./configs/widevine-install.sh
 
-# Flatpak Optional (https://github.com/flathub/com.github.Eloston.UngoogledChromium)
-## Install Widevine CDM
-## Fix the Spell Checker
-## How to Force Enable Dark Theme
+echo -e "Fixing the Spell Checker"
+base64 -d ./configs/en-US-9-0.bdic > ~/.var/app/com.github.Eloston.UngoogledChromium/config/chromium/Dictionaries/en-US-9-0.bdic
 
-# NO IDEA HOW TO IMPLEMENT THESE, I CAN'T FIND ANY API/CLI COMMANDS/CONFIG FILES... :(
+echo -e "Forcing Dark Theme"
+cp ./configs/chromium-flags.conf ~/.var/app/com.github.Eloston.UngoogledChromium/config/chromium-flags.conf
+
 
 sudo pacman -Rs firefox
