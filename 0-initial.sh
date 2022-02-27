@@ -13,9 +13,9 @@ sudo mv /usr/share/applications/yad-icon-browser.desktop /usr/share/applications
 sudo mv /usr/share/applications/avahi-discover.desktop /usr/share/applications/avahi-discover.desktopbkup
 
 echo -e "Add flatpak"
-yay -S flatpak
+sudo pacman -S --needed flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 echo -e "Install AppStore and Timeshift to handle backups"
-yay -S pamac-nosnap timeshift
+yay -S --needed pamac-nosnap timeshift
 

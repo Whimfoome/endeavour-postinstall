@@ -5,7 +5,7 @@ dconf write /org/gnome/desktop/input-sources/sources "[('xkb', 'us'), ('xkb', 'b
 
 # Enable Keyboard LED
 # Wayland
-sudo pacman -Syu brightnessctl
+sudo pacman -Syu --needed brightnessctl
 
 scrollport=$(brightnessctl --list | grep -F scrolllock)
 clear

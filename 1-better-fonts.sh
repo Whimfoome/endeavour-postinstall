@@ -4,7 +4,7 @@ clear
 # https://wiki.manjaro.org/index.php/Improve_Font_Rendering
 echo -e "Install MSFonts & Improve Font Rendering"
 
-yay -S ttf-ms-fonts ttf-tahoma ttf-vista-fonts
+yay -S --needed ttf-ms-fonts ttf-tahoma ttf-vista-fonts
 sudo cp ./configs/etcfontslocal.conf /etc/fonts/local.conf
 cp ~/.Xresources ~/.Xresources.bak 
 cp ./configs/xresources ~/.Xresources
