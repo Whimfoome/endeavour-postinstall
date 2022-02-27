@@ -19,3 +19,6 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 echo -e "Install AppStore and Timeshift to handle backups"
 yay -S --needed pamac-nosnap timeshift
 
+echo -e "Enable Bluetooth"
+sudo pacman -S --needed bluez bluez-utils
+sudo systemctl enable --now bluetooth
