@@ -7,6 +7,7 @@ source ./0-initial.sh
 source ./1-better-fonts.sh
 source ./2-gnome-de.sh
 source ./3-gamingdriver.sh
+source ./4-browser.sh
 
 clear
 echo -e "Uninstall Unneeded packages"

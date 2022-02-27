@@ -31,3 +31,30 @@ echo -e "Files - Sort Folders before Files; Expandable folders in List View; Con
 # Do Not Disturb
 dconf write /org/gnome/desktop/notifications/show-banners false
 echo -e "Do Not Disturb Enabled"
+
+# Dark Theme
+build_adwgtk3 () {
+  sudo pacman -S --needed ninja git meson sassc
+  git clone https://github.com/lassekongo83/adw-gtk3.git
+  cd adw-gtk3
+  meson build
+  sudo ninja -C build install
+  cd ../
+  
+  dconf write /org/gnome/desktop/interface/gtk-theme "'adw-gtk3-dark'"
+}
+
+echo -e "\n\n"
+while true; do
+    read -p "Do you wish to make gtk3 apps look like gtk4 libadwaita? [y/n] " yn
+    case $yn in
+        [Yy]* ) build_adwgtk3; break;;
+        [Nn]* ) dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita-dark'"; break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+dconf write /org/gnome/desktop/wm/preferences/button-layout "'appmenu:minimize,close'"
+echo -e "Enabled Dark Theme"
+
