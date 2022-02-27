@@ -20,6 +20,7 @@ echo -e "Adding Default Config"
 # Default Search engine - DuckDuckGo; to use Google, add this url "http://www.google.com/search?q=%s" to search engines
 # Turns off 'Ask where to save each file before downloading'
 # Downloads chromium-web-store to download extensions; in addition adds uBlock Origin and AutoScroll
+mkdir -p ~/.var/app/com.github.Eloston.UngoogledChromium/config/chromium/
 unzip ./configs/chromeprofile.zip -d ~/.var/app/com.github.Eloston.UngoogledChromium/config/chromium/
 
 echo -e "Installing Widevine CDM"
