@@ -3,7 +3,9 @@
 clear
 
 install_misc_apps () {
-  flatpak install flathub com.spotify.Client
+  sudo pacman -S --needed steam
+  yay -S --needed heroic-games-launcher-bin
+  flatpak install flathub com.spotify.Client org.libreoffice.LibreOffice com.usebottles.bottles
   
   # Install Spotify Adblock
   wget -q -c -nc -O ./spotify-adblock.so  https://github.com/abba23/spotify-adblock/releases/download/v1.0.1/spotify-adblock.so
@@ -18,7 +20,7 @@ install_misc_apps () {
 }
 
 while true; do
-    read -p "Do you want to install misc apps (Spotify+Adblock, etc.)? [y/n] " yn
+    read -p "Do you want to install misc apps (Spotify+Adblock, LibreOffice, Steam, Heroic, Bottles)? [y/n] " yn
     case $yn in
         [Yy]* ) install_misc_apps; break;;
         [Nn]* ) break;;
@@ -41,7 +43,10 @@ install_dev_tools () {
   echo -e "export PATH=\"\$PATH:~/.dotnet/tools\"" >> ~/.bashrc
   echo -e "export DOTNET_CLI_TELEMETRY_OPTOUT=1" >> ~/.bashrc
   
-  # TODO: VSCode extensions and settings
+  code --install-extension PKief.material-icon-theme
+  code --install-extension ms-dotnettools.csharp
+  code --install-extension rust-lang.rust
+  mkdir -p ~/.config/Code/User/ && cp ./configs/codesettings.json ~/.config/Code/User/settings.json
 }
 
 while true; do
