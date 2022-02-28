@@ -2,7 +2,7 @@
 
 clear
 
-install_spotify () {
+install_misc_apps () {
   flatpak install flathub com.spotify.Client
   
   # Install Spotify Adblock
@@ -20,7 +20,34 @@ install_spotify () {
 while true; do
     read -p "Do you want to install misc apps (Spotify+Adblock, etc.)? [y/n] " yn
     case $yn in
-        [Yy]* ) install_spotify; break;;
+        [Yy]* ) install_misc_apps; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+clear
+
+install_dev_tools () {
+  # Install GitHub Desktop, Blender, GIMP + GMIC
+  flatpak install flathub io.github.shiftey.Desktop org.blender.Blender org.gimp.GIMP org.gimp.GIMP.Plugin.GMic
+  clear # Install DotNet, git-lfs
+  sudo pacman -S --needed dotnet-sdk git-lfs
+  clear # Install VSCode
+  yay -S --needed visual-studio-code-bin
+  clear # Install Rust
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  
+  echo -e "export PATH=\"\$PATH:~/.dotnet/tools\"" >> ~/.bashrc
+  echo -e "export DOTNET_CLI_TELEMETRY_OPTOUT=1" >> ~/.bashrc
+  
+  # TODO: VSCode extensions and settings
+}
+
+while true; do
+    read -p "Do you want to install Development Tools? [y/n] " yn
+    case $yn in
+        [Yy]* ) install_dev_tools; break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
