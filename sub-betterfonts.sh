@@ -1,10 +1,8 @@
 #!/bin/bash
 
-clear
 # https://wiki.manjaro.org/index.php/Improve_Font_Rendering
-echo -e "Install MSFonts & Improve Font Rendering"
+echo -e "Improve Font Rendering"
 
-yay -S --needed ttf-ms-fonts ttf-tahoma ttf-vista-fonts
 sudo cp ./configs/etcfontslocal.conf /etc/fonts/local.conf
 cp ~/.Xresources ~/.Xresources.bak 
 cp ./configs/xresources ~/.Xresources
@@ -17,7 +15,6 @@ echo -e "Install JetBrains Mono"
 wget -q -c -nc -O ./jetbrainsmono.zip https://download.jetbrains.com/fonts/JetBrainsMono-2.242.zip
 mkdir -p ~/.local/share/fonts/jetbrains
 unzip ./jetbrainsmono.zip -d ~/.local/share/fonts/jetbrains
-
 
 sudo fc-cache -fv 
 
