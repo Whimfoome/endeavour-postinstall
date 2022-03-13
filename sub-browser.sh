@@ -12,7 +12,7 @@ mkdir -p ~/.var/app/com.github.Eloston.UngoogledChromium/config/chromium/
 unzip ./configs/chromeprofile.zip -d ~/.var/app/com.github.Eloston.UngoogledChromium/config/chromium/
 
 echo -e "Installing Widevine CDM"
-source ./configs/widevine-install.sh
+bash ./configs/widevine-install.sh
 
 echo -e "Fixing the Spell Checker"
 base64 -d ./configs/en-US-9-0.bdic > ~/.var/app/com.github.Eloston.UngoogledChromium/config/chromium/Dictionaries/en-US-9-0.bdic
