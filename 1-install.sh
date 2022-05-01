@@ -1,10 +1,10 @@
 #!/bin/bash
 
-pac_to_install="flatpak gnome-backgrounds bluez bluez-utils ninja git meson sassc gamemode lib32-gamemode dotnet-sdk git-lfs"
+pac_to_install="flatpak gnome-backgrounds bluez bluez-utils wireplumber ninja git meson sassc gamemode lib32-gamemode dotnet-sdk git-lfs steam"
 
 yay_to_install="pamac-nosnap timeshift ttf-ms-fonts ttf-tahoma ttf-vista-fonts visual-studio-code-bin"
 
-flat_to_install="com.github.tchx84.Flatseal de.haeckerfelix.Fragments io.github.celluloid_player.Celluloid org.gnome.TextEditor com.mattjakeman.ExtensionManager org.gnome.Calculator org.gnome.FileRoller com.github.Eloston.UngoogledChromium com.spotify.Client org.libreoffice.LibreOffice com.usebottles.bottles io.github.shiftey.Desktop org.blender.Blender org.gimp.GIMP org.gimp.GIMP.Plugin.GMic com.valvesoftware.Steam com.heroicgameslauncher.hgl"
+flat_to_install="com.github.tchx84.Flatseal de.haeckerfelix.Fragments io.github.celluloid_player.Celluloid org.gnome.TextEditor com.mattjakeman.ExtensionManager org.gnome.Calculator org.gnome.FileRoller com.github.Eloston.UngoogledChromium com.spotify.Client org.libreoffice.LibreOffice com.usebottles.bottles io.github.shiftey.Desktop org.blender.Blender org.gimp.GIMP org.gimp.GIMP.Plugin.GMic"
 
 pac_to_remove="arc-gtk-theme-eos arc-x-icons-theme xterm totem gedit gnome-calculator gnome-screenshot file-roller firefox"
 
